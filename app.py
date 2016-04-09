@@ -1,9 +1,75 @@
-from flask import Flask
+from flask import Flask, jsonify
+import feedparser
+
+import requests
+import json
+import os
+
+data = {}
+types = {'CW':'Cold Wave',
+        'CE':'Complex Emergency',
+        'DR':'Drought',
+        'EQ':'Earthquake',
+        'EP':'Epidemic',
+        'EC':'Extratropical Cyclone',
+        'ET':'Extreme Temperature',
+        'FA':'Famine',
+        'FR':'Fire',
+        'FF':'Flash Floods',
+        'FL':'Flood',
+        'HT':'Heat Wave',
+        'IN':'Insect Infesation',
+        'LS':'Land Slide',
+        'MS':'Mud Slide',
+        'OT':'Others',
+        'ST':'Severe Local Storm',
+        'SL':'Slide',
+        'AV':'Snow Avalanche',
+        'SS':'Storm Surge',
+        'AC':'Tech Disaster',
+        'TO':'Tornado',
+        'TC':'Tropical Cyclone',
+        'TS':'Tsunami',
+        'VW':'Violent Wind',
+        'WV':'Wave Surge',
+        'WF':'Wild Fire',
+        }
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    temp_json = {}
+    for item in data['items']:
+        temp_json_item = {}
+        temp_json_item['coordinates'] = item['where']
+        temp_json_item['event_type'] = types[item['gdacs_eventtype']]
+        temp_json_item['event_name'] = item['gdacs_eventname']
+        temp_json_item['population'] = item['gdacs_population']
+        temp_json_item['alert_level'] = item['gdacs_alertlevel']
+        temp_json_item['from_date'] = item['gdacs_fromdate']
+        temp_json_item['to_date'] = item['gdacs_todate']
+        temp_json_item['severity'] = item['gdacs_severity'] #edit, m = magnitude
+        temp_json_item['summary'] = item['summary']
+        temp_json_item['link'] = item['link']
+        temp_json_item['tags'] = item['tags']
+        temp_json_item['title'] = item['title']
+        temp_json_item['calc'] = item['gdacs_calculationtype']
+
+
+        # print item['gdacs_severity']
+
+        temp_json[item['id']] = temp_json_item
+
+
+    # print temp_json
+
+    return jsonify({'data':temp_json})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    global data
+
+    # data = feedparser.parse('http://www.gdacs.org/rss.aspx?profile=ARCHIVE&from=2012-04-09&to=2016-04-09&alertlevel=orange&country=india&eventtype=')
+    data = feedparser.parse(r'rss.aspx')
+
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True,host='0.0.0.0',port=port)
