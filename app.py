@@ -1,6 +1,6 @@
-from flask import Flask, jsonify
+from flask import Flask, request, session, g, redirect, url_for, render_template, jsonify
 import feedparser
-
+from flask.ext.cors import CORS
 import requests
 import json
 import os
@@ -35,8 +35,9 @@ types = {'CW':'Cold Wave',
         'WF':'Wild Fire',
         }
 app = Flask(__name__)
+CORS(app)
 
-@app.route("/")
+@app.route("/",methods=['GET','POST'])
 def hello():
     temp_json = {}
     for item in data['items']:
@@ -64,6 +65,12 @@ def hello():
     # print temp_json
 
     return jsonify({'data':temp_json})
+    @app.after_request
+    def after_request(response):
+      response.headers.add('Access-Control-Allow-Origin', '*')
+      response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+      response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+      return response
 
 if __name__ == "__main__":
     global data
