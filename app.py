@@ -6,6 +6,7 @@ import json
 import os
 
 data = {}
+camps = []
 types = {'CW':'Cold Wave',
         'CE':'Complex Emergency',
         'DR':'Drought',
@@ -34,6 +35,11 @@ types = {'CW':'Cold Wave',
         'WV':'Wave Surge',
         'WF':'Wild Fire',
         }
+
+tips = {
+    'Earthquake' : " Quick Tip : If you're indoors, stand against a wall near the center of the building, stand in a doorway, or crawl under heavy furniture (a desk or table). Stay away from windows and outside doors.If you're outdoors, stay in the open away from power lines or anything that might fall. Stay away from buildings (stuff might fall off the building or the building could fall on you)."
+}
+
 app = Flask(__name__)
 CORS(app)
 
@@ -47,6 +53,10 @@ def hello():
             temp_json_item['event_type'] = types[item['gdacs_eventtype']]
         except:
             temp_json_item['event_type'] = item['gdacs_eventtype']
+        try:
+            temp_json_item['tip'] = tips[types[item['gdacs_eventtype']]]
+        except:
+            pass
         temp_json_item['event_name'] = item['gdacs_eventname']
         temp_json_item['population'] = item['gdacs_population']
         temp_json_item['alert_level'] = item['gdacs_alertlevel']
@@ -74,6 +84,31 @@ def hello():
       response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
       response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
       return response
+
+@app.route("/post",methods=['GET','POST'])
+def get():
+    global camps
+
+    if request.method == 'POST':
+        tempdata = json.loads(request.data)
+        camps.append(tempdata)
+        print tempdata
+
+    return 'a'
+    @app.after_request
+    def after_request(response):
+      response.headers.add('Access-Control-Allow-Origin', '*')
+      response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+      response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+      return response
+
+@app.route("/camp",methods=['GET','POST'])
+def camp():
+    global camps
+
+    return jsonify({'data':camps})
+
+
 
 if __name__ == "__main__":
     global data
