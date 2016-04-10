@@ -7,8 +7,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Poiret%20One" rel="stylesheet" type="text/css">
-
+    <link href="https://fonts.googleapis.com/css?family=Poiret%20One" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet">
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -21,23 +20,63 @@
 
 <body ng-app="starter">
     <ion-tabs class="tabs-icon-top">
-        <ion-tab title="Map" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline">
-            <ion-pane>
+        <ion-tab title="Map" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline" >
+            <ion-pane >
                 <ion-header-bar class="bar-stable">
-                    <center>
-                        <center><h1 class="title">ERECTUS</h1></center>
+                    
+                        <center>
+                            <h1 class="title">ERECTUS</h1></center>
                 </ion-header-bar>
                 <ion-content ng-controller="MapController">
                     <div id="map" data-tap-disabled="true"></div>
                 </ion-content>
             </ion-pane>
         </ion-tab>
-        <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock">
-            
-                <ion-pane>
-                <ion-content ng-controller="MapController" ng-repeat="i in a">
-                    <h2>{{i}}</h2>
-            </ion-content>
+        <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock" >
+            <ion-pane>
+                <ion-content >
+
+                   <ion-header-bar class="bar-stable">
+                    <center>
+                        <center>
+                            <h1 class="title" style="color:white">ERECTUS</h1></center>
+                </ion-header-bar>
+
+                
+                    <div class="list card">
+                        <div class="item item-avatar">
+                            <h1>EARTHQUAKES</h1>
+                            <p>Some quick tip......</p>
+                        </div>
+                        <div class="item item-body">
+                            <ul>
+                                <li>If you're indoors, stand against a wall near the center of the building, stand in a doorway, or crawl under heavy furniture (a desk or table).
+                                    <li> Stay away from windows and outside doors.If you're outdoors, stay in the open away from power lines or anything that might fall.
+                                        <li>Stay away from buildings (stuff might fall off the building or the building could fall on you.
+                            </ul>
+                            <p>
+                                <a href="#" class="subdued">Tel: 020 7820 2000 </a>
+                                <a href="#" class="subdued">Fax: 020 7820 2222</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item item-avatar">
+                        <h1>FLOODS</h1>
+                        <p>Some quick tip......</p>
+                    </div>
+                    <div class="item item-body">
+                        <ul>
+                            <li>Inland flooding that leads to drowning usually occurs during flash-flood conditions.
+                                <li>Flash floods are those that develop within six hours of a rain storm.
+                                    <li>That may sound like a lot of time, but severe flash floods can occur in a matter of minutes, depending on the intensity and duration of the rain, the topography of an area, and the condition of the soil and ground cover.
+                        </ul>
+                        <p>
+                            <a href="#" class="subdued">Tel: 020 7820 2000 </a>
+                            <a href="#" class="subdued">Fax: 020 7820 2222</a>
+                        </p>
+                    </div>
+                    </div>
+                </ion-content>
             </ion-pane>
         </ion-tab>
     </ion-tabs>
