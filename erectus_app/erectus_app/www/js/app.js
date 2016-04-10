@@ -83,15 +83,17 @@ var marker = new google.maps.Marker({
                   });
 
             console.log(marker);
+
  var lat_lng = new Array();
+
    for (i = 0; i < locations.length; i++) {  
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map,
-        icon: 
-      })
+        map: map
+        
+      });
       /*lat_lng.push(position);*/
-    };
+    }
 
 
  for (i = 0; i < locations.length; i++) {  
