@@ -43,7 +43,10 @@ def hello():
     for item in data['items']:
         temp_json_item = {}
         temp_json_item['coordinates'] = item['where']
-        temp_json_item['event_type'] = types[item['gdacs_eventtype']]
+        try:
+            temp_json_item['event_type'] = types[item['gdacs_eventtype']]
+        except:
+            temp_json_item['event_type'] = item['gdacs_eventtype']
         temp_json_item['event_name'] = item['gdacs_eventname']
         temp_json_item['population'] = item['gdacs_population']
         temp_json_item['alert_level'] = item['gdacs_alertlevel']
@@ -76,7 +79,7 @@ if __name__ == "__main__":
     global data
 
     # data = feedparser.parse('http://www.gdacs.org/rss.aspx?profile=ARCHIVE&from=2012-04-09&to=2016-04-09&alertlevel=orange&country=india&eventtype=')
-    data = feedparser.parse(r'rss.aspx')
+    data = feedparser.parse(r'rss2.aspx')
 
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True,host='0.0.0.0',port=port)
