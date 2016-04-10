@@ -49,7 +49,7 @@ $(document).ready(function() {
                         "marker-symbol": "monument"
                     }
                 });
-                $('</br><p class="events" style="background-color: rgba(0, 0, 0, 0.1); padding: 1em;"><span class="time" style="float: left;">' + data.data[i].from_date + '</span></br>' + data.data[i].summary + '</br><span class="time">Severity Unit : </span>' + data.data[i].severity.unit + '</br><span class="time">Severity Value : </span>' + data.data[i].severity.value + '</p>').appendTo('.major');
+                $('</br><p class="events" style="background-color: rgba(0,0,0,0.6); padding: 1em;"><span class="time" style="float: left;">' + data.data[i].from_date + '</span></br>' + data.data[i].summary + '</br><span class="time">Severity Unit : </span>' + data.data[i].severity.unit + 'agnitude</br><span class="time">Severity Value : </span>' + data.data[i].severity.value + '</p>').appendTo('.major');
                 //console.log(data.data[i].coordinates.coordinates[0]);
                 //console.log(data.data[i].coordinates.coordinates[1]);
             }
@@ -64,8 +64,8 @@ $(document).ready(function() {
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/dark-v8',
-        center: [77.59179687498357, 28.66995747013945],
-        zoom: 1.5,
+        center: [-32.51469952959991,18.890056173909848],
+        zoom: 1,
     });
 
     map.on('style.load', function() {
@@ -149,4 +149,22 @@ $(document).ready(function() {
             });
         });
     });
+
+var swatches = document.getElementById('swatches');
+var layers = document.getElementById('layers');
+var colors = [
+    '#0d47a1',
+    '#006064'
+
+];
+
+colors.forEach(function(color) {
+    var swatch = document.createElement('button');
+    swatch.style.backgroundColor = color;
+    window.addEventListener('mousemove', function() {
+
+        map.setPaintProperty(layer.value, 'fill-color', color);
+    });
+    swatches.appendChild(swatch);
+});
 });

@@ -15,16 +15,31 @@
 <body class="landing">
     <div id="page-wrapper">
         <header id="header" class="alt">
-            <h1><a href="index.html">Erectus</a> by TheTuringMachine</h1>
+            <h1 style="font-size: 20px;"><a href="index.html" style="color: #FF522B; font-weight: 700;">Erectus</a> by TheTuringMachine</h1>
         </header>
         <button id='setCamp'>Alert Relief Camp !</button>
         <div class="mapcover">
             <div id='map'></div>
+            <div class='map-overlay top' style="visibility: hidden;">
+                <div class='map-overlay-inner'>
+                    <fieldset>
+                        <label>Select layer</label>
+                        <select id='layer' name='layer'>
+                            <option value='water'>Water</option>
+                            <option value='building'>Buildings</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <label>Choose a color</label>
+                        <div id='swatches'></div>
+                    </fieldset>
+                </div>
+            </div>
         </div>
         <section id="main" class="container">
             <section class="box special" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
                 <header class="major">
-                    <h2>Events List</h2>
+                    <h2>Events</h2>
                 </header>
             </section>
         </section>
