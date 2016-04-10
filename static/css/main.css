@@ -3626,6 +3626,7 @@ body.landing #main {
     text-align: center;
     color: #fff;
     background: #090C17;
+    opacity: 0.8;
     z-index: 10000000;
 }
 
@@ -3643,7 +3644,7 @@ h2 {
     font-size: 4em;
     font-weight: bold;
     font-family: Catamaran;
-    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9;
+    /*text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9;*/
 }
 
 .map-overlay {
