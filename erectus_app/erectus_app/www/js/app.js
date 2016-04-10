@@ -74,6 +74,12 @@ app.run(function($ionicPlatform) {
                         zoom: 16,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
+                    d=[];
+                    d.push(lat);
+                    d.push(long);
+                    locations.push(d);
+                    
+                    console.log(locations);
 
 
                     mapOptions = {
@@ -102,14 +108,15 @@ app.run(function($ionicPlatform) {
 
                     var marker = new google.maps.Marker({
                         position: myLatlng,
-                        map: map
+                        map: map,
+                        icon:"http://maps.google.com/mapfiles/ms/icons/green-dot.png"
                     });
 
                  /*   console.log(marker);*/
 
                     var lat_lng = new Array();
 
-                    for (i = 0; i < locations.length; i++) {
+                    for (i = 0; i < locations.length-1; i++) {
                         marker = new google.maps.Marker({
                             position: new google.maps.LatLng(locations[i][0], locations[i][1]),
                             map: map
@@ -121,7 +128,7 @@ app.run(function($ionicPlatform) {
 
                     for (i = 0; i < locations.length; i++) {
 
-                        var myLatlng = new google.maps.LatLng(locations[i][1], locations[i][2]);
+                        var myLatlng = new google.maps.LatLng(locations[i][0], locations[i][1]);
                         lat_lng.push(myLatlng);
                     };
 
@@ -173,7 +180,7 @@ app.run(function($ionicPlatform) {
                         elementType: 'all',
                         stylers: [
                             { saturation: -4 },
-                            { visibility: 'on' },
+                            { visibility: 'off' },
                             { lightness: -67 },
                             { color: '#6d7988' }
                         ]
