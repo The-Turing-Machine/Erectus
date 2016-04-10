@@ -24,14 +24,7 @@ app.run(function($ionicPlatform) {
 })
 
 
-/*app.controller('Text_Controller', function($scope, $cordovaGeolocation, $ionicLoading, $ionicPlatform) {
 
-
-
-
-
-        }
-*/
         app.controller('MapController', function($scope, $http,$cordovaGeolocation, $ionicLoading, $ionicPlatform) {
 
             $ionicPlatform.ready(function() {
@@ -280,4 +273,21 @@ app.run(function($ionicPlatform) {
                     console.log(err);
                 });
             })
-        });
+
+
+})
+/*$http.get('http://10.0.0.62:5000').then(function(response) {
+  console.log(response);
+ });
+        });*/
+
+/*
+app.controller('Text_Controller', function($scope, $http,$cordovaGeolocation, $ionicLoading, $ionicPlatform) {
+ $ionicPlatform.ready(function() {
+
+ $http.get('http://10.0.0.62:5000').then(function(response) {
+  console.log(response);
+ });
+
+})
+});*/

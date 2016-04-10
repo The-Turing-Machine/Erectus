@@ -7,6 +7,8 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Poiret%20One" rel="stylesheet" type="text/css">
+
     <link href="css/style.css" rel="stylesheet">
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -23,7 +25,7 @@
             <ion-pane>
                 <ion-header-bar class="bar-stable">
                     <center>
-                        <h1 class="title">Earthquake!</h1></center>
+                        <center><h1 class="title">ERECTUS</h1></center>
                 </ion-header-bar>
                 <ion-content ng-controller="MapController">
                     <div id="map" data-tap-disabled="true"></div>
@@ -31,10 +33,11 @@
             </ion-pane>
         </ion-tab>
         <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock">
-            <ion-pane>
-                <ion-content ng-controller="Text_Controller" ng-repeat="i in a">
+            
+                <ion-pane>
+                <ion-content ng-controller="MapController" ng-repeat="i in a">
                     <h2>{{i}}</h2>
-                </ion-content>
+            </ion-content>
             </ion-pane>
         </ion-tab>
     </ion-tabs>

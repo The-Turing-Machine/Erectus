@@ -12,8 +12,12 @@
 	color:#ecf0f1 !important;
 }
 .title{
-	color:#ecf0f1 !important;	
+	 font-size: 3em;
+	 line-height: 1.25em;
+   	color: #fff;
+   	margin: 0 0 1em 0;
+   	font-family: 'Passion One', cursive;
 }
-.tabs-icon-top{
+/*.tabs-icon-top{
 background-color: red !important;
-}
+}*/
