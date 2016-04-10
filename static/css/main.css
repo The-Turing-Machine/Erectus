@@ -153,6 +153,7 @@ body {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    overflow: scroll;
 }
 
 
@@ -1743,6 +1744,7 @@ h2 {
     font-size: 2.25em;
     line-height: 1.5em;
     letter-spacing: -0.035em;
+    font-weight: bold;
 }
 
 h3 {
@@ -1871,6 +1873,7 @@ header h6 + p {
 header.major {
     padding: 1em 0;
     text-align: center;
+    overflow: visible;
 }
 
 header.major h2 {
@@ -2658,6 +2661,7 @@ input[type="button"]:disabled,
 
 #page-wrapper {
     padding-top: 3em;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 body.landing #page-wrapper {
@@ -3605,9 +3609,40 @@ body.landing #main {
 }
 
 .mapcover {
-    box-shadow: 0px 0px 10px #ffffff;
+    box-shadow: 0px 0px 30px #000;
 }
 
 .mapboxgl-canvas-container.mapboxgl-interactive {
     height: 80vh;
+}
+
+.time {
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+#setCamp {
+    position: absolute;
+    width: 20%;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    margin: 2em;
+    right: 0;
+    font-family: "Source Sans Pro", sans-serif;
+    border-radius: 3px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    background: #263238;
+    z-index: 10000000;
+}
+
+.events {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.2s ease-in-out;
+}
+
+.events:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
