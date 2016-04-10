@@ -55,7 +55,7 @@ console.log(long);
 
 mapOptions={
     center: myLatlng,
-          zoom: 2,
+          zoom: 10,
           minZoom: 2,
           zoomControl: true,
     scaleControl: true,
