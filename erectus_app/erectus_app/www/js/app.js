@@ -132,6 +132,110 @@ var marker = new google.maps.Marker({
 
 
 
+
+ var usRoadMapType = new google.maps.StyledMapType([
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry',
+        stylers: [
+          {saturation: -4},
+           {visibility: 'on'},
+          {lightness: -67},
+          {color:'#6d7988'}
+        ]
+      }, {
+        featureType: 'road.arterial',
+        elementType: 'all',
+        stylers: [
+          {saturation: -4},
+           {visibility: 'on'},
+          {lightness: -67},
+          {color:'#6d7988'}
+        ]
+      }, {
+        featureType: 'road.local',
+        elementType: 'all',
+        stylers: [
+          {saturation: -4},
+           {visibility: 'on'},
+          {lightness: -67},
+          {color:'#6d7988'}
+        ]
+      }, {
+        featureType: 'water',
+        elementType: 'geometry',
+        stylers: [
+          
+          {saturation: -4},
+           {visibility: 'on'},
+          {lightness: -67},
+          {color:'#6d7988'}
+          
+        ]
+      }, {
+        featureType: 'road.highway',
+        elementType: 'labels',
+        stylers: [
+          {saturation: -4},
+           {visibility: 'on'},
+          {lightness: -67},
+          {color:'#6d7988'}
+        ]
+      }, {
+        featureType: 'administrative.locality',
+        elementType: 'labels.text',
+        stylers: [
+          {saturation: -4},
+           {visibility: 'simplified'},
+          {lightness: -67},
+          {color:'#bdc3c7'},
+          {gamma: 0.90}        ]
+      },
+{
+        featureType: 'administrative.province',
+        elementType: 'labels.text',
+        stylers: [
+          {saturation: -4},
+           {visibility: 'simplified'},
+          {lightness: -67},
+          {color:'#bdc3c7'},
+          {gamma: 0.90}        ]
+      },
+      {
+        featureType: 'administrative.country',
+        elementType: 'labels.text',
+        stylers: [
+          {saturation: -4},
+           {visibility: 'simplified'},
+          {lightness: -67},
+          {color:'#bdc3c7'},
+          {gamma: 0.90}
+        ]
+      },
+       {
+        featureType: 'transit.line',
+        elementType: 'geometry',
+        stylers: [
+          {saturation: -4},
+           {visibility: 'on'},
+          {lightness: -67},
+          {color:'#6d7988'}
+        ]
+      },
+      {
+        featureType: 'landscape',
+        elementType: 'geometry',
+        stylers: [
+          {hue: '#ff0000'},
+          {visibility: 'on'},
+           {saturation: -4},
+          {lightness: -67},
+          {color:'#333333'}
+        ]
+      }
+    ], {name: 'US Road Atlas'});
+
+
  map.mapTypes.set('usroadatlas', usRoadMapType);
   map.setMapTypeId('usroadatlas');
             $scope.map = map;
