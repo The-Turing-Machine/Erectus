@@ -1,6 +1,6 @@
 # Erectus :volcano:
 
-A Disaster management service,alerting people of upcoming natural disaster and showing them way to nearest relief camps via mobile app.
+A Disaster management service, alerting people of upcoming natural disaster and showing them way to nearest relief camps via mobile app.
 
 ![Dashboard](https://github.com/The-Turing-Machine/Erectus/blob/master/common/Dashboard.png)
 
